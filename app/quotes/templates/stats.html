@@ -30,6 +30,7 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'index' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="https://www.uib.cat/">UIB</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'admin:index' %}">ADMIN</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,8 +52,21 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h3>Active users</h3>
+                    <h3>Visits</h3>
                     <canvas id="active-users"></canvas>
+                </div>
+            </div>
+
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h3>Visits day of the week</h3>
+                    <canvas id="visits-day-week"></canvas>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5 justify-content-center mt-3">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h3>Loaded pages</h3>
+                    <canvas id="loaded-pages"></canvas>
                 </div>
             </div>
 
@@ -65,10 +79,18 @@
 
             <div class="row gx-4 gx-lg-5 justify-content-center mt-3">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h3>Genders</h3>
-                    <canvas id="genders"></canvas>
+                    <h3>Image posts adapted with alt texts</h3>
+                    <canvas id="imgs-with-alt-text"></canvas>
                 </div>
             </div>
+
+            <div class="row gx-4 gx-lg-5 justify-content-center mt-3">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h3>Video posts adapted with readable descriptions</h3>
+                    <canvas id="videos-with-descriptions"></canvas>
+                </div>
+            </div>
+
         </div>
         <!-- Footer-->
         <footer class="border-top">
@@ -117,11 +139,20 @@
             var activeUsersNames = {{ active_users_names|safe }};
             var activeUsersCount = {{ active_users_count|safe }};
 
+            var visitsDayOfTheWeekNames = {{ visits_day_of_the_week_names|safe }};
+            var visitsDayOfTheWeekCount = {{ visits_day_of_the_week_count|safe }};
+
+            var loadedPagesNamesNames = {{ loaded_page_names_names|safe }};
+            var loadedPagesNamesCount = {{ loaded_page_names_count|safe }};
+
             var postsCateogoriesNames = {{ posts_categories_names|safe }};
             var postsCateogoriesCount = {{ posts_categories_count|safe }};
 
-            var genderPlatformNames = {{ genders_platform_names|safe }};
-            var genderPlatformCount = {{ genders_platform_count|safe }};
+            var imagePostsWithAltNames = {{ image_posts_with_alt_names|safe }};
+            var imagePostsWithAltCount = {{ image_posts_with_alt_count|safe }};
+
+            var videosWithTextDescriptionNames = {{ videos_with_text_description_names|safe }};
+            var videosWithTextDescriptionCount = {{ videos_with_text_description_count|safe }};
         </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
         <script src="{% static 'js/stats.js' %}"></script>

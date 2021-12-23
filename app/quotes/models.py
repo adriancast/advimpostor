@@ -1,6 +1,8 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from datetime import datetime
 
+from django.utils import timezone
 # Create your models here.
 class PostModel(models.Model):
     title = models.CharField(max_length=128)
@@ -16,3 +18,11 @@ class PostModel(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class Visit(models.Model):
+    date = models.DateTimeField(default=timezone.now())
+    page_name = models.CharField(max_length=512)
+
+    def __str__(self):
+        return self.page_name
