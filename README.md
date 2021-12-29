@@ -1,6 +1,6 @@
-# advimpostor
+# ADIIU - Dashboard with graphs
 
-This repo contains all the code of the website from https://projectname.com
+If you want to see this project in action check this video in YouTube: https://www.youtube.com/watch?v=yoF8V09ifRc
 
 ### Development
 
