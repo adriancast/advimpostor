@@ -52,10 +52,10 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <h3>Categories</h3>
+                    <h1>Categories</h1>
                     <p>
                         {% for tag in tags %}
-                            <button onclick="window.location.href='{% url "index-selected-category" selected_category=tag.name %}'" class="btn btn-outline-primary m-1 {% if selected_category == tag.name %}active{% endif %}">
+                            <button onclick="window.location.href='{% url "index-selected-category" selected_category=tag.name %}'" class="btn btn-outline-dark m-1 {% if selected_category == tag.name %}active{% endif %}">
                                 {{tag.name|capfirst}}
                             </button>
                         {% endfor %}
@@ -70,7 +70,9 @@
                             {% if post.image %}
                             <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.image_alt }}">
                             {% endif %}
+                            {% if post.text %}
                             <h3 class="post-subtitle">{{ post.text }}</h3>
+                            {% endif %}
                             {% if post.iframe %}
                             {{ post.iframe|safe }}
                             {% endif %}
